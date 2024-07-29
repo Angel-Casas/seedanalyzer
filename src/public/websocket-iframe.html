@@ -1,0 +1,33 @@
+<!-- websocket-iframe.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSocket Iframe</title>
+</head>
+<body>
+  <script>
+    // Establish WebSocket connection
+    const socket = new WebSocket('wss://socket.csgo500.com');
+
+    socket.onopen = function() {
+      console.log('WebSocket connection established.');
+
+      // Optionally, send initial message or perform other actions
+      socket.send('Hello from iframe!');
+    };
+
+    socket.onmessage = function(event) {
+      console.log('Message received:', event.data);
+
+      // Optionally, send message to parent window
+      window.parent.postMessage(event.data, '*');
+    };
+
+    socket.onclose = function(event) {
+      console.log('WebSocket connection closed:', event);
+    };
+  </script>
+</body>
+</html>

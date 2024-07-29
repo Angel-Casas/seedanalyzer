@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seed Analyzer</title>
+    <meta name="description" content="Seed Analyzer for crypto casinos.">
+    <meta name="theme-color" content="#d2d2d2">
+    
+    <!-- PWA: Apple Touch Icon, and Service Worker registration. --><!-- Vite Plugin PWA will add the Web App Manifest during build -->
+    <link rel="apple-touch-icon" href="/images/pwa/pwa-192x192.png" size="192x192">
+    <link rel="preload" fetchpriority="high" as="image" href="/images/aiTreeGhibli.png" type="image/png">
+    <link rel="preload" fetchpriority="high" as="image" href="/images/pwa/pwa-512x512.png" type="image/png">
+    <script type="module">
+      // Register Service Worker using Vite Plugin PWA
+      import { registerSW } from 'virtual:pwa-register';
+      registerSW();
+    </script>
+  </head>
+  <body>
+    <div id="App"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
